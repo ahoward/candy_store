@@ -186,3 +186,4 @@ module ActionController
 end
 
 CandyStore = ActionController::Session::CandyStore
+ 

@@ -1,1 +1,36 @@
-lib/candy_store.rb
+
+NAME
+  CandyStore
+
+SYNOPSIS
+  hybrid session store that combines rails' built-in cookie based session
+  store with its database backed one
+
+    session              # normal rails' cookie based session
+    session.flash        # same as above 
+    session.server       # this one lives in the db 
+    session.server.flash # this one lives in the db too
+
+USAGE
+
+  1) drop this file in lib/candy_store.rb
+
+  2) run the migration to create the database table
+
+     . rake db:sessions:create
+     . rake db:migrate
+
+  3) create config/initializers/session_store.rb with contents like 
+
+       ActionController::Base.session_store = CandyStore
+
+     (or put that in config/environment.rb)
+
+  4) use sessions normally.  if you need to store large items or otherwise
+  want to put some infomation in the db use
+
+      session.server
+      session.server.flash
+
+  that's it!
+
