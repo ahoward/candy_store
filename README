@@ -11,6 +11,9 @@ SYNOPSIS
     session.server       # this one lives in the db 
     session.server.flash # this one lives in the db too
 
+URI
+  http://github.com/ahoward/candy_store
+
 USAGE
 
   1) drop this file in lib/candy_store.rb
