@@ -137,7 +137,8 @@ module ActionController
           end
 
           module FlashPowers
-            FlashHash = ::ActionController::Flash::FlashHash
+            FlashHash = ::ActionController::Flash::FlashHash unless defined?(FlashHash)
+
              
             def flash
               unless flash?
