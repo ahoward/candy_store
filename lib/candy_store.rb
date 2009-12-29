@@ -112,8 +112,10 @@ module ActionController
 
           def save_server_data!
             if server_data?
+              session_id = ((@server_hash['session_id'] || @server_hash[:session_id] || @server_hash.session_id) rescue nil)
               @server_data.data = @server_hash
-              @server_data.save
+              @server_data.session_id ||= session_id
+              @server_data.save if @server_data.session_id
             end
           end
 
