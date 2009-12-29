@@ -103,7 +103,7 @@ module ActionController
           end
 
           def session_id
-            @session_id ||= fetch(:session_id) # soon to be depricated?
+            self[:session_id] || self['session_id'] || @env[ENV_SESSION_OPTIONS_KEY][:id] # soon to be depricated?
           end
 
           def server_data?
