@@ -105,6 +105,7 @@ module ActionController
           def session_id
             self[:session_id] || self['session_id'] || @env[ENV_SESSION_OPTIONS_KEY][:id] # soon to be depricated?
           end
+          alias_method 'server?', 'server_data?'
 
           def server_data?
             defined?(@server_data) and defined?(@server_hash) and @server_data and @server_hash
